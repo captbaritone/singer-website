@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en" ng-app>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="">
+        <meta name="author" content="">
+        <link rel="shortcut icon" href="../../docs-assets/ico/favicon.png">
+
+        <title>Jordan Eldredge - Baritone</title>
+
+        <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css">
+
+        <!-- Custom styles for this template -->
+        <link href="style.css" rel="stylesheet">
+
+        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+        <![endif]-->
+        <!-- Angular at the top so we don't ever see the templating -->
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.10/angular.min.js"></script>
+    </head>
+
+    <body>
+
+        <div class="container" >
+            <div class="header">
+                <!--
+                <ul class="nav nav-pills pull-right">
+                    <li><a href="#upcoming">Upcoming</a></li>
+                    <li><a href="#resume">Resume</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="#newsletter">Newsletter</a></li>
+                </ul>-->
+                <h3>Jordan Eldredge <small style="padding-left: .5em;">baritone</small></h3>
+            </div>
+
+            <div id="carousel-example-generic photos" class="carousel fade" data-ride="carousel" data-interval="8000">
+                <!-- Indicators -->
+                <!--
+                <ol class="carousel-indicators">
+                    <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+                    <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+                    <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+                    <li data-target="#carousel-example-generic" data-slide-to="3"></li>
+                </ol>
+                -->
+
+                <!-- Wrapper for slides -->
+                <div class="carousel-inner">
+                    <div class="item active">
+                        <img src="images/papageno.jpg" class="img-responsive img-rounded" alt="The Magic Flute, San Francisco State University">
+                    </div>
+                    <div class="item">
+                        <img src="images/pirate-king.jpg" class="img-responsive img-rounded" alt="Pirates of Penzance, Lyric Theater San Jose, 2012">
+                    </div>
+                    <div class="item">
+                        <img src="images/ottone.jpg" class="img-responsive img-rounded" alt="Poppea, San Francisco State University">
+                    </div>
+                    <div class="item">
+                        <img src="images/edward.jpg" class="img-responsive img-rounded" alt="The Witching Hour and a Half, Miscreant's Cabaret">
+                    </div>
+                </div>
+
+            </div>
+            <div class="row marketing" ng-controller="ResumeCtrl">
+                <div class="col-lg-12">
+                    <h4 id='upcoming' class='text-muted'>Upcoming</h4>
+                    <div class='table-responsive'>
+                        <table class='table table-hover table-condensed'>
+                            <thead>
+                                <tr><th>Character</th><th>Title</th><th>Company</th><th>Date</th><th></th></tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-repeat="show in resume | orderBy:'start_date' | filter:isPast(false)" ng-cloak>
+                                    <td>{{ show.character }}</td>
+                                    <td>{{ show.opera }}<span ng-if="show.sung_in_translation">*</span></td>
+                                    <td>{{ show.company }}</td>
+                                    <td>{{ dateRange(show.start_date, show.end_date) }}</td>
+                                    <td><a ng-if='show.ticket_url' href="{{ show.ticket_url }}">Tickets</a></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div><!-- /table-responsive -->
+                </div><!-- /column -->
+            </div><!-- /row -->
+            <div class="row marketing" ng-controller="ResumeCtrl">
+                <div class="col-lg-12">
+                    <h4 id='resume' class='text-muted'>Resume</h4>
+                    <div class='table-responsive'>
+                        <table class='table table-hover table-condensed'>
+                            <thead>
+                                <tr><th>Character</th><th>Title</th><th>Company</th><th>Date</th></tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-repeat="show in resume | orderBy:'start_date':true | filter:isPast(true) | filter:{resume:true}" ng-cloak>
+                                    <td>{{ show.character }}</td>
+                                    <td>{{ show.opera }}<span ng-if="show.sung_in_translation">*</span></td>
+                                    <td>{{ show.company }}</td>
+                                    <td>{{ show.start_date | date:'yyyy' }}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div><!-- /table-responsive -->
+                    <p class='pull-right'><small>*Sung in translation</small></p>
+                </div><!-- /column -->
+            </div><!-- /row -->
+            <div class="row marketing">
+
+                <div class="col-sm-6">
+                    <h4 id='contact'>Contact</h4>
+                    <p>Email: <a href='mailto:jordaneldredge@gmail.com'>JordanEldredge@gmail.com</a></p>
+                </div><!-- /column -->
+
+                <div class="col-sm-6">
+                    <h4 id='newsletter'>Email Newsletter</h4>
+                    <form action="http://classicalcode.us2.list-manage2.com/subscribe/post?u=c866319de2cc1274a9940c274&amp;id=55985cdc6b" method="post" role="form" target="_blank" novalidate>
+                        <div class='form-group'>
+                            <input type="email" value="" class='form-control' name="EMAIL" placeholder='JaneDoe@example.com'>
+                        </div>
+                        <div style="position: absolute; left: -5000px;"><input type="text" name="b_c866319de2cc1274a9940c274_55985cdc6b" value=""></div>
+                        <button class="btn btn-success" type="submit" value="Subscribe" name="subscribe">Subscribe</button>
+                    </form>
+                </div><!-- /column -->
+
+            </div><!-- /row -->
+
+            <div class="footer">
+                <p>&copy; Jordan Eldredge 2013</p>
+            </div>
+
+        </div> <!-- /container -->
+
+
+        <!-- Bootstrap core JavaScript
+        ================================================== -->
+        <!-- Placed at the end of the document so the pages load faster -->
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+        <script src="js/moment.min.js"></script>
+        <script src="js/twix.min.js"></script>
+        <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+        <script>
+            function ResumeCtrl($scope, $http) {
+                $scope.resume = [];
+                $http.get('resume.json').success(function(data) {
+                    $scope.resume = data;
+                });
+
+                $scope.isPast = function(past) {
+                    return function(object) {
+                        var date = new Date(object.end_date);
+                        var now = new Date();
+                        if(past) {
+                            return date < now;
+                        } else {
+                            return date > now;
+                        }
+                    }
+                };
+                $scope.dateRange = function(start, end) {
+                    return moment( start ).twix( end, true ).format({
+                        dayFormat: "Do"
+                    })
+                };
+            }
+        </script>
+        <script>
+            (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+            })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+            ga('create', 'UA-96948-15', 'jordaneldredge.com');
+            ga('send', 'pageview');
+
+        </script>
+    </body>
+</html>
+
