@@ -1,0 +1,478 @@
+[
+    {
+        "id": "50",
+        "character": "Papageno",
+        "opera": "The Magic Flute",
+        "company": "Pocket Opera",
+        "start_date": "2014-03-09",
+        "end_date": "2014-03-23",
+        "ticket_url": "http://www.pocketopera.org/2014/PO-2014-Flute.html",
+        "sung_in_translation": true
+    },
+    {
+        "id": "49",
+        "character": "Papageno",
+        "opera": "Die Zauberflöte",
+        "company": "Waffle Opera",
+        "start_date": "2014-02-27",
+        "end_date": "2014-03-07",
+        "ticket_url": "http://themagicflute.brownpapertickets.com/",
+        "sung_in_translation": false
+    },
+    {
+        "id": "48",
+        "character": "Sir Despard",
+        "opera": "Ruddigore",
+        "company": "San Jose Lyric Theater",
+        "start_date": "2013-10-05",
+        "end_date": "2013-10-13",
+        "sung_in_translation": false
+    },
+    {
+        "id": "47",
+        "character": "Masetto",
+        "opera": "Don Giovanni",
+        "company": "Pocket Opera",
+        "start_date": "2013-03-03",
+        "end_date": "2013-03-17",
+        "sung_in_translation": true
+    },
+    {
+        "id": "46",
+        "character": "Masetto",
+        "opera": "Don Giovanni",
+        "company": "Virago Theater",
+        "start_date": "2013-02-22",
+        "end_date": "2013-03-09",
+        "sung_in_translation": false
+    },
+    {
+        "id": "45",
+        "character": "Scynthius",
+        "opera": "Princess Ida",
+        "company": "Lamplighters",
+        "start_date": "2013-01-25",
+        "end_date": "2013-02-17",
+        "sung_in_translation": false
+    },
+    {
+        "id": "44",
+        "character": "Alidor",
+        "opera": "Cendrillon (Isouard)",
+        "company": "Waffle Opera",
+        "start_date": "2012-12-02",
+        "end_date": "2012-12-07",
+        "sung_in_translation": false
+    },
+    {
+        "id": "43",
+        "character": "Pirate King",
+        "opera": "Pirates of Penzance",
+        "company": "San Jose Lyric Theater",
+        "start_date": "2012-03-24",
+        "end_date": "2012-04-01",
+        "sung_in_translation": false
+    },
+    {
+        "id": "42",
+        "character": "Antonio",
+        "opera": "The Gondoliers",
+        "company": "Lamplighters",
+        "start_date": "2012-01-10",
+        "end_date": "2012-01-29",
+        "sung_in_translation": false
+    },
+    {
+        "id": "41",
+        "character": "Melchior",
+        "opera": "Amahl and the Night Visitors",
+        "company": "Contemporary Opera Marin",
+        "start_date": "2011-12-11",
+        "end_date": "2011-12-18",
+        "sung_in_translation": false
+    },
+    {
+        "id": "40",
+        "character": "Dr. Bartolo",
+        "opera": "Il barbiere di Siviglia",
+        "company": "SF Conservatory of Music",
+        "start_date": "2011-04-01",
+        "end_date": "2011-04-01",
+        "sung_in_translation": false
+    },
+    {
+        "id": "39",
+        "character": "de Brétigny",
+        "opera": "Manon",
+        "company": "Pocket Opera",
+        "start_date": "2011-04-03",
+        "end_date": "2011-04-17",
+        "sung_in_translation": true
+    },
+    {
+        "id": "38",
+        "character": "Barone Douphol",
+        "opera": "La traviata",
+        "company": "Pocket Opera",
+        "start_date": "2010-07-11",
+        "end_date": "2010-07-18",
+        "sung_in_translation": true
+    },
+    {
+        "id": "37",
+        "character": "Bartolo/Antonio",
+        "opera": "Le nozze di Figaro",
+        "company": "Bay Area Classical Harmonies",
+        "start_date": "2009-09-24",
+        "end_date": "2009-09-27",
+        "sung_in_translation": false
+    },
+    {
+        "id": "36",
+        "character": "Sergeant",
+        "opera": "Barber of Seville",
+        "company": "Pocket Opera",
+        "start_date": "2009-06-07",
+        "end_date": "2009-06-21",
+        "sung_in_translation": true
+    },
+    {
+        "id": "35",
+        "character": "Morales",
+        "opera": "Carmen",
+        "company": "Pocket Opera",
+        "start_date": "2009-07-12",
+        "end_date": "2009-07-26",
+        "sung_in_translation": true
+    },
+    {
+        "id": "34",
+        "character": "Agamemnon",
+        "opera": "La belle Hélène",
+        "company": "Pocket Opera",
+        "start_date": "2009-02-21",
+        "end_date": "2009-03-15",
+        "sung_in_translation": true
+    },
+    {
+        "id": "33",
+        "character": "Tartuffe",
+        "opera": "Tartuffe (Mechem)",
+        "company": "SFSU",
+        "start_date": "2007-11-08",
+        "end_date": "2007-11-11",
+        "sung_in_translation": false
+    },
+    {
+        "id": "32",
+        "character": "Mars",
+        "opera": "Orpheus in the Underworld",
+        "company": "SFSU",
+        "start_date": "2007-04-26",
+        "end_date": "2007-05-06",
+        "sung_in_translation": false
+    },
+    {
+        "id": "31",
+        "character": "Papageno",
+        "opera": "Die Zauberflöte",
+        "company": "SFSU",
+        "start_date": "2005-04-29",
+        "end_date": "2005-05-07",
+        "sung_in_translation": false
+    },
+    {
+        "id": "30",
+        "character": "Corporal",
+        "opera": "Daughter of the Regiment",
+        "company": "Sonoma City Opera",
+        "start_date": "2004-06-24",
+        "end_date": "2004-08-01",
+        "sung_in_translation": false
+    },
+    {
+        "id": "29",
+        "character" : "Ensemble",
+        "opera": "Cavalleria rusticana",
+        "company": "Pocket Opera",
+        "start_date": "2011-01-01",
+        "end_date": "2011-01-01",
+        "_comment": "check exact dates",
+        "sung_in_translation": true
+    },
+    {
+        "id": "28",
+        "character" : "Ensemble",
+        "opera": "Barber of Seville",
+        "company": "Pocket Opera",
+        "start_date": "2003-01-01",
+        "end_date": "2003-01-01",
+        "_comment": "check exact dates",
+        "sung_in_translation": true
+    },
+    {
+        "id": "27",
+        "character" : "Ensemble",
+        "opera": "The Abduction from the Seraglio",
+        "company": "Sonoma City Opera",
+        "start_date": "2007-01-01",
+        "end_date": "2007-01-01",
+        "_comment": "check exact dates",
+        "sung_in_translation": true
+    },
+    {
+        "id": "26",
+        "character" : "Ensemble",
+        "opera": "Anna Bolena",
+        "company": "Pocket Opera",
+        "start_date": "2004-01-01",
+        "end_date": "2004-01-01",
+        "_comment": "check exact dates",
+        "sung_in_translation": true
+    },
+    {
+        "id": "25",
+        "character" : "Ensemble",
+        "opera": "Elixir of Love",
+        "company": "Sonoma City Opera",
+        "start_date": "2003-01-01",
+        "end_date": "2003-01-01",
+        "_comment": "check exact dates",
+        "sung_in_translation": true
+    },
+    {
+        "id": "24",
+        "character" : "Ensemble",
+        "opera": "The Nightingale",
+        "company": "Cinnabar Theater",
+        "start_date": "2001-01-01",
+        "end_date": "2001-01-01",
+        "_comment": "check exact dates",
+        "sung_in_translation": true
+    },
+    {
+        "id": "23",
+        "character" : "Ensemble",
+        "opera": "La Bohème",
+        "company": "Cinnabar Theater",
+        "start_date": "2001-01-01",
+        "end_date": "2001-01-01",
+        "_comment": "check exact dates",
+        "sung_in_translation": true
+    },
+    {
+        "id": "22",
+        "character" : "Ensemble",
+        "opera": "Dido & Aeneas",
+        "company": "BASOTI",
+        "start_date": "2002-01-01",
+        "end_date": "2002-01-01",
+        "_comment": "check exact dates",
+        "sung_in_translation": false
+    },
+    {
+        "id": "21",
+        "character" : "Ensemble",
+        "opera": "Die Fledermaus",
+        "company": "Pacific Opera Theater Co.",
+        "start_date": "2001-01-01",
+        "end_date": "2001-01-01",
+        "_comment": "check exact dates",
+        "sung_in_translation": true
+    },
+    {
+        "id": "20",
+        "character" : "Ensemble",
+        "opera": "The Cunning Little Vixen",
+        "company": "Cinnabar Theater",
+        "start_date": "2001-01-01",
+        "end_date": "2001-01-01",
+        "_comment": "check exact dates",
+        "sung_in_translation": true
+    },
+    {
+        "id": "19",
+        "character" : "Ensemble",
+        "opera": "Barbe-Bleue",
+        "company": "Pocket Opera",
+        "start_date": "2003-01-01",
+        "end_date": "2003-01-01",
+        "_comment": "check exact dates",
+        "sung_in_translation": false
+    },
+    {
+        "id": "18",
+        "character" : "Cladwell",
+        "opera": "Urinetown",
+        "company": "SFSU Players Club",
+        "start_date": "2007-01-01",
+        "end_date": "2007-01-01",
+        "_comment": "check exact dates",
+        "sung_in_translation": false
+    },
+    {
+        "id": "17",
+        "character" : "Aeneas",
+        "opera": "Dido & Aeneas",
+        "company": "Cinnabar Theater",
+        "start_date": "2000-01-01",
+        "end_date": "2000-01-01",
+        "_comment": "check exact dates",
+        "sung_in_translation": false
+    },
+    {
+        "id": "16",
+        "character" : "Pooh-Bah",
+        "opera": "The Mikado",
+        "company": "Cinnabar Theater",
+        "start_date": "2001-01-01",
+        "end_date": "2001-01-01",
+        "_comment": "check exact dates",
+        "sung_in_translation": false
+    },
+    {
+        "id": "15",
+        "character" : "Ottone",
+        "opera": "L'Incoronazione di Poppea",
+        "company": "SFSU",
+        "start_date": "2005-01-01",
+        "end_date": "2005-01-01",
+        "_comment": "check exact dates",
+        "sung_in_translation": true
+    },
+    {
+        "id": "14",
+        "character" : "Grześ",
+        "opera": "The Haunted Manor",
+        "company": "Pocket Opera",
+        "start_date": "2009-01-01",
+        "end_date": "2009-01-01",
+        "_comment": "check exact dates",
+        "sung_in_translation": true
+    },
+    {
+        "id": "13",
+        "character" : "Pirate King",
+        "opera": "Pirates of Penzance",
+        "company": "Cinnabar Theater",
+        "start_date": "2003-01-01",
+        "end_date": "2003-01-01",
+        "_comment": "check exact dates",
+        "sung_in_translation": false
+    },
+    {
+        "id": "12",
+        "character" : "Bass-Baritone soloist",
+        "opera": "In These Stone Horizons Sing (Jenkins)",
+        "company": "Symphony Parsassus",
+        "start_date": "2011-01-01",
+        "end_date": "2011-01-01",
+        "_comment": "check exact dates",
+        "sung_in_translation": false
+    },
+    {
+        "id": "11",
+        "character" : "Ben",
+        "opera": "The Telephone",
+        "company": "SF Waffle Opera",
+        "start_date": "2012-04-15",
+        "end_date": "2012-04-22",
+        "sung_in_translation": false
+    },
+    {
+        "id": "10",
+        "character" : "Bluff",
+        "opera": "The Impresario",
+        "company": "Sf  Waffle Opera",
+        "start_date": "2012-04-15",
+        "end_date": "2012-04-22",
+        "sung_in_translation": false
+    },
+    {
+        "id": "9",
+        "character" : "Carpinters Mate, Outlaw Boy, Quartet soloist",
+        "opera": "Lamplighter’s 60 Jubilee ",
+        "company": "Lamplighters",
+        "start_date": "2012-01-01",
+        "end_date": "2012-01-01",
+        "_comment": "check exact dates",
+        "sung_in_translation": false
+    },
+    {
+        "id": "8",
+        "character" : "Police/Pirate",
+        "opera": "The Pirates of Penzance",
+        "company": "Lamplighters",
+        "start_date": "2010-07-29",
+        "end_date": "2010-08-29",
+        "sung_in_translation": false
+    },
+    {
+        "id": "7",
+        "character" : "Butler/Périchaud",
+        "opera": "La rondine",
+        "company": "Pocket Opera",
+        "start_date": "2010-01-01",
+        "end_date": "2010-01-01",
+        "_comment": "check exact dates",
+        "sung_in_translation": false
+    },
+    {
+        "id": "6",
+        "character" : "David",
+        "opera": "A Hand of Bridge",
+        "company": "Canyon House Workshop†",
+        "start_date": "2006-01-01",
+        "end_date": "2006-01-01",
+        "_comment": "check exact dates",
+        "sung_in_translation": false
+    },
+    {
+        "id": "5",
+        "character" : "Captain",
+        "opera": "The Bandits (Offenbach)",
+        "company": "Pocket Opera",
+        "start_date": "2007-01-01",
+        "end_date": "2007-01-01",
+        "_comment": "check exact dates",
+        "sung_in_translation": true
+    },
+    {
+        "id": "4",
+        "character" : "Hermann",
+        "opera": "The Tales of Hoffmann",
+        "company": "Pocket Opera",
+        "start_date": "2012-07-22",
+        "end_date": "2012-08-05",
+        "sung_in_translation": true
+    },
+    {
+        "id": "3",
+        "character" : "Wolf/Prince",
+        "opera": "Into the Woods",
+        "company": "Catherine Cook Sch. Chicago",
+        "start_date": "2011-01-01",
+        "end_date": "2011-01-01",
+        "_comment": "check exact dates",
+        "sung_in_translation": false
+    },
+    {
+        "id": "2",
+        "character" : "Mr. Gobineau",
+        "opera": "The Medium",
+        "company": "BASOTI",
+        "start_date": "2003-01-01",
+        "end_date": "2003-01-01",
+        "_comment": "check exact dates",
+        "sung_in_translation": false
+    },
+    {
+        "id": "1",
+        "character" : "2nd Yeoman",
+        "opera": "The Yeomen of the Guard",
+        "company": "Lamplighters",
+        "start_date": "2011-02-04",
+        "end_date": "2011-02-20",
+        "sung_in_translation": false
+    }
+]
