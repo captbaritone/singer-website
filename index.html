@@ -26,7 +26,7 @@
 
     <body>
 
-        <div class="container" >
+        <div class="container" ng-controller="ResumeCtrl">
             <div class="header">
                 <!--
                 <ul class="nav nav-pills pull-right">
@@ -66,7 +66,7 @@
                 </div>
 
             </div>
-            <div class="row marketing" ng-controller="ResumeCtrl">
+            <div class="row marketing">
                 <div class="col-lg-12">
                     <h4 id='upcoming' class='text-muted'>Upcoming</h4>
                     <div class='table-responsive'>
@@ -75,7 +75,7 @@
                                 <tr><th>Character</th><th>Title</th><th>Company</th><th>Date</th><th></th></tr>
                             </thead>
                             <tbody>
-                                <tr ng-repeat="show in resume | orderBy:'start_date' | filter:isPast(false)" ng-cloak>
+                                <tr ng-repeat="show in allShows | orderBy:'start_date' | filter:isPast(false)" ng-cloak>
                                     <td>{{ show.character }}</td>
                                     <td>{{ show.opera }}<span ng-if="show.sung_in_translation">*</span></td>
                                     <td>{{ show.company }}</td>
@@ -87,7 +87,7 @@
                     </div><!-- /table-responsive -->
                 </div><!-- /column -->
             </div><!-- /row -->
-            <div class="row marketing" ng-controller="ResumeCtrl">
+            <div class="row marketing">
                 <div class="col-lg-12">
                     <h4 id='resume' class='text-muted'>Resume</h4>
                     <div class='table-responsive'>
@@ -96,7 +96,7 @@
                                 <tr><th>Character</th><th>Title</th><th>Company</th><th>Date</th></tr>
                             </thead>
                             <tbody>
-                                <tr ng-repeat="show in resume | orderBy:'start_date':true | filter:isPast(true) | filter:{resume:true}" ng-cloak>
+                                <tr ng-repeat="show in resumeShows | orderBy:'start_date':true | filter:isPast(true)" ng-cloak>
                                     <td>{{ show.character }}</td>
                                     <td>{{ show.opera }}<span ng-if="show.sung_in_translation">*</span></td>
                                     <td>{{ show.company }}</td>
@@ -144,22 +144,38 @@
         <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
         <script>
             function ResumeCtrl($scope, $http) {
-                $scope.resume = [];
-                $http.get('resume.json').success(function(data) {
-                    $scope.resume = data;
+                $scope.resumeShows = [];
+                $scope.allShows = [];
+
+                // Only feature some shows in my online resume
+                $scope.resumeShowIds = [
+                    50, 49, 48, 47, 46, 45, 44, 43, 42, 41, 40, 39, 38, 37, 36,
+                    35, 34, 33, 32, 31, 30, 29, 28
+                ];
+
+                $http.get('performances.json').success(function(data) {
+
+                    $scope.allShows = data;
+
+                    // Build the array of resume shows
+                    angular.forEach(data, function(show){
+                        angular.forEach($scope.resumeShowIds, function(id){
+                            if(show.id == id)
+                            {
+                                $scope.resumeShows.push(show);
+                            }
+                        });
+                    });
                 });
 
                 $scope.isPast = function(past) {
                     return function(object) {
                         var date = new Date(object.end_date);
                         var now = new Date();
-                        if(past) {
-                            return date < now;
-                        } else {
-                            return date > now;
-                        }
+                        return past ? (date < now) : (date > now);
                     }
                 };
+
                 $scope.dateRange = function(start, end) {
                     return moment( start ).twix( end, true ).format({
                         dayFormat: "Do"
@@ -179,4 +195,3 @@
         </script>
     </body>
 </html>
-
