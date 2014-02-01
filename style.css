@@ -75,6 +75,11 @@ body {
   display:block !important;
   z-index:1;
 }
+
+.carousel.fade .item small {
+    float: right;
+}
+
 .carousel.fade .item:first-child {
   top:auto;
   position:relative;
