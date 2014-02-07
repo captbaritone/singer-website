@@ -190,7 +190,7 @@
         "company": "SFSU",
         "start_date": "2007-04-26",
         "end_date": "2007-05-06",
-        "sung_in_translation": false
+        "sung_in_translation": true
     },
     {
         "id": "31",
@@ -208,7 +208,7 @@
         "company": "Sonoma City Opera",
         "start_date": "2004-06-24",
         "end_date": "2004-08-01",
-        "sung_in_translation": false
+        "sung_in_translation": true
     },
     {
         "id": "29",
