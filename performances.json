@@ -1,5 +1,15 @@
 [
     {
+        "id": "51",
+        "character": "Ensemble",
+        "opera": "The Pearl Fishers",
+        "company": "Pocket Opera",
+        "start_date": "2014-06-01",
+        "end_date": "2014-06-08",
+        "ticket_url": "http://www.pocketopera.org/2014/PO-2014-Fishers.html",
+        "sung_in_translation": true
+    },
+    {
         "id": "50",
         "character": "Papageno",
         "opera": "The Magic Flute",
