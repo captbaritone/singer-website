@@ -1,5 +1,15 @@
 [
     {
+        "id": "52",
+        "character": "Singer",
+        "opera": "Pocket Opera Gala 2014",
+        "company": "Pocket Opera",
+        "start_date": "2014-02-23",
+        "end_date": "2014-02-23",
+        "ticket_url": "http://www.pocketopera.org/2014/PO-2014-Gala.html",
+        "sung_in_translation": true
+    },
+    {
         "id": "51",
         "character": "Ensemble",
         "opera": "The Pearl Fishers",
