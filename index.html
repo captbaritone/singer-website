@@ -81,7 +81,7 @@
                             <tbody>
                                 <tr ng-repeat="show in allShows | orderBy:'start_date' | filter:isPast(false)" ng-cloak>
                                     <td>{{ show.character }}</td>
-                                    <td>{{ show.opera }}<span ng-if="show.sung_in_translation">*</span></td>
+                                    <td>{{ show.title }}<span ng-if="show.sung_in_translation">*</span></td>
                                     <td>{{ show.company }}</td>
                                     <td>{{ dateRange(show.start_date, show.end_date) }}</td>
                                     <td><a ng-if='show.ticket_url' href="{{ show.ticket_url }}">Tickets</a></td>
@@ -102,7 +102,7 @@
                             <tbody>
                                 <tr ng-repeat="show in resumeShows | orderBy:'start_date':true | filter:isPast(true)" ng-cloak>
                                     <td>{{ show.character }}</td>
-                                    <td>{{ show.opera }}<span ng-if="show.sung_in_translation">*</span></td>
+                                    <td>{{ show.title }}<span ng-if="show.sung_in_translation">*</span></td>
                                     <td>{{ show.company }}</td>
                                     <td>{{ show.start_date | date:'yyyy' }}</td>
                                 </tr>
