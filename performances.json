@@ -1,5 +1,15 @@
 [
     {
+        "id": "53",
+        "character": "Ko-Ko",
+        "title": "The Mikado",
+        "company": "Lyric Theatre San Jose",
+        "start_date": "2014-06-21",
+        "end_date": "2014-06-29",
+        "ticket_url": "http://www.lyrictheatre.org/season/show-2",
+        "sung_in_translation": false
+    },
+    {
         "id": "52",
         "character": "Singer",
         "title": "Pocket Opera Gala 2014",
@@ -7,16 +17,6 @@
         "start_date": "2014-02-23",
         "end_date": "2014-02-23",
         "ticket_url": "http://www.pocketopera.org/2014/PO-2014-Gala.html",
-        "sung_in_translation": true
-    },
-    {
-        "id": "51",
-        "character": "Ensemble",
-        "title": "The Pearl Fishers",
-        "company": "Pocket Opera",
-        "start_date": "2014-06-01",
-        "end_date": "2014-06-08",
-        "ticket_url": "http://www.pocketopera.org/2014/PO-2014-Fishers.html",
         "sung_in_translation": true
     },
     {
