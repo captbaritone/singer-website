@@ -1,5 +1,15 @@
 [
     {
+        "id": "53",
+        "character": "Ko-Ko",
+        "title": "The Mikado",
+        "company": "Lyric Theatre San Jose",
+        "start_date": "2014-06-21",
+        "end_date": "2014-06-29",
+        "ticket_url": "http://www.lyrictheatre.org/season/show-2",
+        "sung_in_translation": false
+    },
+    {
         "id": "52",
         "character": "Singer",
         "title": "Pocket Opera Gala 2014",
