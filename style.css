@@ -93,6 +93,10 @@ body {
   z-index:2;
 }
 
+/* Site specific classes */
+.title {
+    font-style: italic;
+}
 /* Responsive: Portrait tablets and up */
 @media screen and (min-width: 768px) {
   /* Remove the padding we set earlier */

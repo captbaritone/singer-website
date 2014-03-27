@@ -78,7 +78,8 @@
     {
         "id": "44",
         "character": "Alidor",
-        "title": "Cendrillon (Isouard)",
+        "title": "Cendrillon",
+        "composer": "Isouard",
         "company": "Waffle Opera",
         "start_date": "2012-12-02",
         "end_date": "2012-12-07",
@@ -177,7 +178,8 @@
     {
         "id": "33",
         "character": "Tartuffe",
-        "title": "Tartuffe (Mechem)",
+        "title": "Tartuffe",
+        "composer": "Mechem",
         "company": "SFSU",
         "start_date": "2007-11-08",
         "end_date": "2007-11-11",
@@ -383,7 +385,8 @@
     {
         "id": "12",
         "character" : "Bass-Baritone soloist",
-        "title": "In These Stone Horizons Sing (Jenkins)",
+        "title": "In These Stone Horizons Sing",
+        "composer": "Jenkins",
         "company": "Symphony Parsassus",
         "start_date": "2011-01-01",
         "end_date": "2011-01-01",
@@ -450,7 +453,8 @@
     {
         "id": "5",
         "character" : "Captain",
-        "title": "The Bandits (Offenbach)",
+        "title": "The Bandits",
+        "composer": "Offenbach",
         "company": "Pocket Opera",
         "start_date": "2007-01-01",
         "end_date": "2007-01-01",
