@@ -28,27 +28,10 @@
 
         <div class="container" ng-controller="ResumeCtrl">
             <div class="header">
-                <!--
-                <ul class="nav nav-pills pull-right">
-                    <li><a href="#upcoming">Upcoming</a></li>
-                    <li><a href="#resume">Resume</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                    <li><a href="#newsletter">Newsletter</a></li>
-                </ul>-->
                 <h3>Jordan Eldredge <small style="padding-left: .5em;">baritone</small></h3>
             </div>
 
             <div id="carousel-example-generic photos" class="carousel fade" data-ride="carousel" data-interval="8000">
-                <!-- Indicators -->
-                <!--
-                <ol class="carousel-indicators">
-                    <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-                    <li data-target="#carousel-example-generic" data-slide-to="1"></li>
-                    <li data-target="#carousel-example-generic" data-slide-to="2"></li>
-                    <li data-target="#carousel-example-generic" data-slide-to="3"></li>
-                </ol>
-                -->
-
                 <!-- Wrapper for slides -->
                 <div class="carousel-inner">
                     <div class="item active">
@@ -70,7 +53,7 @@
                 </div>
 
             </div>
-            <div class="row marketing">
+            <div class="row marketing" ng-hide="!upcomingShows.length" ng-cloak>
                 <div class="col-lg-12">
                     <h4 id='upcoming' class='text-muted'>Upcoming</h4>
                     <div class='table-responsive'>
@@ -79,7 +62,7 @@
                                 <tr><th>Character</th><th>Title</th><th>Company</th><th>Date</th><th></th></tr>
                             </thead>
                             <tbody>
-                                <tr ng-repeat="show in allShows | orderBy:'start_date' | filter:isPast(false)" ng-cloak>
+                                <tr ng-repeat="show in upcomingShows = (allShows | orderBy:'start_date' | filter:isPast(false))">
                                     <td>{{ show.character }}</td>
                                     <td><span class='title'>{{ show.title }}</span><span ng-if="show.sung_in_translation">*</span> <span ng-if="show.composer">({{ show.composer }})</span></td>
                                     <td>{{ show.company }}</td>
@@ -154,7 +137,7 @@
                 // Only feature some shows in my online resume
                 $scope.resumeShowIds = [
                     54, 53, 50, 49, 48, 47, 46, 45, 44, 43, 42, 41, 40, 39, 38,
-                    37, 35, 34, 33, 32, 31, 30
+                    37, 35, 34, 33, 31
                 ];
 
                 $http.get('performances.json').success(function(data) {
@@ -174,9 +157,11 @@
 
                 $scope.isPast = function(past) {
                     return function(object) {
-                        var date = new Date(object.end_date);
+                        var formattedDate = object.end_date.replace( /(\d{4})-(\d{2})-(\d{2})/, "$1/$2/$3");
+                        var date = new Date(formattedDate);
                         var now = new Date();
-                        return past ? (date < now) : (date > now);
+                        now.setHours(0,0,0,0);
+                        return past ? (date < now) : (date >= now);
                     }
                 };
 
