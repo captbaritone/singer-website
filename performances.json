@@ -1,5 +1,15 @@
 [
     {
+        "id": "58",
+        "character": "Falke",
+        "title": "Die Fledermaus",
+        "company": "Pocket Operae",
+        "start_date": "2017-07-09",
+        "end_date": "2017-07-23",
+        "ticket_url": "http://www.pocketopera.org/2017/PO17-Fledermaus.html",
+        "sung_in_translation": true
+    },
+    {
         "id": "57",
         "character": "Schaunard",
         "title": "La bohème",
