@@ -1,7 +1,7 @@
 {
     "version": "1.0.0",
     "summary": "Jordan Eldredge's singer website",
-    "repository": "git@github.com:captbaritone/singer-website.git",
+    "repository": "https://github.com/captbaritone/singer-website.git",
     "license": "BSD3",
     "source-directories": [
         "."
