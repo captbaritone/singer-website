@@ -24,6 +24,10 @@ body {
   padding-bottom: 19px;
 }
 
+.header h3 small {
+  padding-left: .5em;
+}
+
 /* Custom page footer */
 .footer {
   padding-top: 19px;

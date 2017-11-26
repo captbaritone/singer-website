@@ -1,0 +1,26 @@
+{
+  "name": "singer-website",
+  "version": "1.0.0",
+  "description": "An over engineered website for my sub-profession of \"opera singer\". It is styled using Bootstrap and uses AngularJS to pull down a static json file which contains information about all the shows I've ever done. Under the heading of \"Upcoming\" it enumerates all shows which are not yet complete. Under a second heading of \"Resume\" it displays a secondary list of roles which are worth mentioning. The ids of these shows are hard coded into the JavaScript. All other shows are ignored.",
+  "main": "elm.js",
+  "dependencies": {
+    "http-server": "^0.10.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "postinstall": "npm run make",
+    "make": "elm-make Main.elm --output elm.js",
+    "dev": "ELM_HOME=node_modules/elm/share elm-reactor",
+    "start": "npm run make && http-server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/captbaritone/singer-website.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/captbaritone/singer-website/issues"
+  },
+  "homepage": "https://github.com/captbaritone/singer-website#readme"
+}
