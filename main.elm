@@ -1,14 +1,13 @@
 module Main exposing (..)
 
-import Http
+import Http exposing (send, get)
 import Html exposing (Html, div, text, ul, li, h1, h3, h4, table, tbody, tr, td, thead, th, a, img, small, p)
-import Html.Attributes exposing (href, src, class, id)
-import Json.Decode exposing (int, string, float, list, nullable, bool, decodeString, field, map7, map6, Decoder)
-import Json.Decode exposing (..)
+import Html.Attributes exposing (href, src, class, id, alt)
+import Json.Decode exposing (int, string, float, list, nullable, bool, decodeString, field, map8, Decoder, maybe)
 import Task exposing (perform)
-import Time exposing (Time, second)
+import Time
 import Date
-import Date.Extra exposing (toFormattedString)
+import Date.Extra
 
 
 main : Program Never Model Msg
@@ -23,12 +22,13 @@ main =
 
 subscriptions : Model -> Sub Msg
 subscriptions model =
-    Time.every (second * 8) Tick
+    Time.every (Time.second * 8) Tick
 
 
 decodeShow : Decoder ShowRecord
 decodeShow =
-    map7 ShowRecord
+    map8 ShowRecord
+        (field "id" string)
         (field "character" string)
         (field "title" string)
         (field "company" string)
@@ -60,7 +60,7 @@ now =
 type Msg
     = GotPerformances (Result Http.Error Resume)
     | SetDate Date.Date
-    | Tick Time
+    | Tick Time.Time
 
 
 update : Msg -> Model -> ( Model, Cmd Msg )
@@ -76,7 +76,7 @@ update msg model =
             ( { model | renderDate = Just date }, Cmd.none )
 
         Tick time ->
-            ( { model | caroselCount = model.caroselCount + 1 }, Cmd.none )
+            ( { model | carouselPosition = model.carouselPosition + 1 }, Cmd.none )
 
 
 send : msg -> Cmd msg
@@ -130,6 +130,11 @@ showIsInThePast now show =
                     False
 
 
+showIsInIdList : List String -> ShowRecord -> Bool
+showIsInIdList idList show =
+    List.member show.id idList
+
+
 extractYear : String -> String
 extractYear date =
     case Date.fromString (date) of
@@ -147,17 +152,17 @@ formatDateString date =
             "?"
 
         Ok d ->
-            toFormattedString "MMM ddd" d
+            Date.Extra.toFormattedString "MMM ddd" d
 
 
-futureResume : ( Date.Date, Resume ) -> Resume
-futureResume ( now, resume ) =
+futureResume : Date.Date -> Resume -> Resume
+futureResume now resume =
     List.filter (showIsInTheFuture now) resume
 
 
-pastResume : ( Date.Date, Resume ) -> Resume
-pastResume ( now, resume ) =
-    List.filter (showIsInThePast now) resume
+pastResume : Date.Date -> List String -> Resume -> Resume
+pastResume now resumeList resume =
+    List.filter (showIsInIdList resumeList) (List.filter (showIsInThePast now) resume)
 
 
 upcomingShowRowView : ShowRecord -> Html Msg
@@ -169,11 +174,11 @@ upcomingShowRowView show =
         , td [] [ text (formatDateString show.start_date ++ " - " ++ formatDateString show.end_date) ]
         , td []
             [ case show.ticket_url of
-                Nothing ->
-                    Html.text ""
-
                 Just url ->
                     a [ href url ] [ text "Tickets" ]
+
+                Nothing ->
+                    text ""
             ]
         ]
 
@@ -202,19 +207,27 @@ upcomingView resume =
     if List.isEmpty resume then
         Html.text ""
     else
-        div []
-            [ h1 [] [ text "Upcomming" ]
-            , table []
-                [ thead []
-                    [ th [] [ text "Character" ]
-                    , th [] [ text "Title" ]
-                    , th [] [ text "Company" ]
-                    , th [] [ text "Date" ]
-                    , th [] [] -- Tickets
+        div [ class "row marketing" ]
+            [ div [ class "col-lg-12" ]
+                [ h4 [ id "upcoming", class "text-muted" ] [ text "Upcoming" ]
+                , div [ class "table-responsive" ]
+                    [ div []
+                        [ table [ class "table table-hover table-condensed" ]
+                            [ thead []
+                                [ tr []
+                                    [ th [] [ text "Character" ]
+                                    , th [] [ text "Title" ]
+                                    , th [] [ text "Company" ]
+                                    , th [] [ text "Date" ]
+                                    , th [] [] -- Tickets
+                                    ]
+                                ]
+                            , tbody [] <|
+                                List.map upcomingShowRowView <|
+                                    resume
+                            ]
+                        ]
                     ]
-                , tbody [] <|
-                    List.map upcomingShowRowView <|
-                        resume
                 ]
             ]
 
@@ -224,47 +237,74 @@ pastView resume =
     if List.isEmpty resume then
         Html.text ""
     else
-        div []
-            [ h4 [ id "resume", class "text-muted" ] [ text "Resume" ]
-            , table [ class "table table-hover table-condensed" ]
-                [ thead []
-                    [ tr []
-                        [ th [] [ text "Character" ]
-                        , th [] [ text "Title" ]
-                        , th [] [ text "Company" ]
-                        , th [] [ text "Date" ]
+        div [ class "row marketing" ]
+            [ div [ class "col-lg-12" ]
+                [ h4 [ id "resume", class "text-muted" ] [ text "Resume" ]
+                , div [ class "table-responsive" ]
+                    [ div []
+                        [ table [ class "table table-hover table-condensed" ]
+                            [ thead []
+                                [ tr []
+                                    [ th [] [ text "Character" ]
+                                    , th [] [ text "Title" ]
+                                    , th [] [ text "Company" ]
+                                    , th [] [ text "Date" ]
+                                    ]
+                                ]
+                            , tbody [] <|
+                                List.map pastShowRowView <|
+                                    resume
+                            ]
                         ]
                     ]
-                , tbody [] <|
-                    List.map pastShowRowView <|
-                        resume
-                ]
-            , p [ class "pull-right" ]
-                [ small [] [ text "*Sung in translation" ]
+                , p [ class "pull-right" ]
+                    [ small [] [ text "*Sung in translation" ]
+                    ]
                 ]
             ]
 
 
-caroselItemView : String -> Html Msg
-caroselItemView imgSrc =
+photoCreditView : Maybe PhotoCredit -> Html Msg
+photoCreditView credit =
+    small []
+        [ case credit of
+            Nothing ->
+                text ""
+
+            Just credit ->
+                case credit.url of
+                    Nothing ->
+                        text credit.name
+
+                    Just url ->
+                        a [ href url ]
+                            [ text credit.name
+                            ]
+        ]
+
+
+carouselItemView : Int -> Int -> Photo -> Html Msg
+carouselItemView carouselCount index photo =
     div
         [ class
             ("item "
-                ++ (if True then
+                ++ (if (carouselCount % 3 == index) then
                         "active"
                     else
                         ""
                    )
             )
         ]
-        [ img [ src imgSrc, class "img-responsive img-rounded" ] [] ]
+        [ img [ src photo.url, alt photo.alt, class "img-responsive img-rounded" ] []
+        , photoCreditView photo.credit
+        ]
 
 
-caroselView : Model -> Html Msg
-caroselView model =
+carouselView : Model -> Html Msg
+carouselView model =
     div [ class "carousel fade" ]
         [ div [ class "carousel-inner" ] <|
-            List.map caroselItemView <|
+            List.indexedMap (carouselItemView model.carouselPosition) <|
                 model.carouselImages
         ]
 
@@ -284,15 +324,9 @@ view model =
                         , small [] [ text "Baritone" ]
                         ]
                     ]
-                , caroselView model
-                , upcomingView (futureResume ( renderDate, model.resume ))
-                , div [ class "row marketing" ]
-                    [ div [ class "col-lg-12" ]
-                        [ div [ class "table-responsive" ]
-                            [ pastView (pastResume ( renderDate, model.resume ))
-                            ]
-                        ]
-                    ]
+                , carouselView model
+                , upcomingView (futureResume renderDate model.resume)
+                , pastView (pastResume renderDate model.resumeShows model.resume)
                 , div [ class "footer marketing" ]
                     [ p [] [ text ("© Jordan Eldredge 2013 - " ++ (toString (Date.year renderDate))) ]
                     ]
@@ -302,8 +336,20 @@ view model =
             Html.text ""
 
 
+type alias PhotoCredit =
+    { name : String, url : Maybe String }
+
+
+type alias Photo =
+    { url : String
+    , alt : String
+    , credit : Maybe PhotoCredit
+    }
+
+
 type alias ShowRecord =
-    { character : String
+    { id : String
+    , character : String
     , title : String
     , company : String
     , start_date : String
@@ -319,20 +365,57 @@ type alias Resume =
 
 type alias Model =
     { resume : Resume
+    , resumeShows : List String
     , renderDate : Maybe Date.Date
-    , caroselCount : Int
-    , carouselImages : List String
+    , carouselPosition : Int
+    , carouselImages : List Photo
     }
 
 
 model : Model
 model =
     { resume = []
+    , resumeShows =
+        [ "58"
+        , "54"
+        , "53"
+        , "50"
+        , "49"
+        , "48"
+        , "47"
+        , "46"
+        , "45"
+        , "44"
+        , "43"
+        , "42"
+        , "41"
+        , "40"
+        , "39"
+        , "38"
+        , "37"
+        , "35"
+        , "34"
+        , "33"
+        , "31"
+        ]
     , renderDate = Nothing
-    , caroselCount = 0
+    , carouselPosition = 0
     , carouselImages =
-        [ "https://jordaneldredge.com/singer/images/ottone.jpg"
-        , "https://jordaneldredge.com/singer/images/pirate-king.jpg"
-        , "https://jordaneldredge.com/singer/images/papageno.jpg"
+        [ { url = "./images/ottone.jpg"
+          , alt = "Poppea, San Francisco State University"
+          , credit = Nothing
+          }
+        , { url = "./images/pirate-king.jpg"
+          , alt = "Pirates of Penzance, Lyric Theater San Jose, 2012"
+          , credit = Just { name = "Bob March", url = Just "http://doverbeach.zenfolio.com/lyr12pirates_dr1_act2/h2cd40783#h2cd40783" }
+          }
+        , { url = "./images/papageno.jpg"
+          , alt = "The Magic Flute, San Francisco State University"
+          , credit = Nothing
+          }
+        , { url = "./images/edward.jpg"
+          , alt = "The Witching Hour and a Half, Miscreant's Cabaret"
+          , credit = Just { name = "Cody Giannotti", url = Nothing }
+          }
         ]
     }
